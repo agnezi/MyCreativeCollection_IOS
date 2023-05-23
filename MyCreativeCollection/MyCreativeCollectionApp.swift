@@ -8,9 +8,15 @@ import SwiftUI
 
 @main
 struct MyCreativeCollectionApp: App {
+	
+	@StateObject var viewModel = ViewModel()
+	
     var body: some Scene {
         WindowGroup {
-            ContentView()
+					NavigationView {						
+            AllCollectionsScreen()
+					}
+					.environmentObject(viewModel)
         }
     }
 }
