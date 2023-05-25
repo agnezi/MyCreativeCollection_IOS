@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883E78952A1FE5DB0012EB93 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E78942A1FE5DB0012EB93 /* LoginScreen.swift */; };
+		883E78972A2028D00012EB93 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E78962A2028D00012EB93 /* Color+Extensions.swift */; };
 		8869C25129E826CD0095C363 /* MyCreativeCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869C25029E826CD0095C363 /* MyCreativeCollectionTests.swift */; };
 		8869C29929E830960095C363 /* MyCreativeCollectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869C29829E830960095C363 /* MyCreativeCollectionUITests.swift */; };
 		8869C29B29E830960095C363 /* MyCreativeCollectionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869C29A29E830960095C363 /* MyCreativeCollectionUITestsLaunchTests.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		883E78942A1FE5DB0012EB93 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		883E78962A2028D00012EB93 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		8869C24E29E826CD0095C363 /* MyCreativeCollectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCreativeCollectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8869C25029E826CD0095C363 /* MyCreativeCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCreativeCollectionTests.swift; sourceTree = "<group>"; };
 		8869C29629E830960095C363 /* MyCreativeCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCreativeCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +156,7 @@
 				886CB92F29E5FD0F0003E3DB /* Assets.xcassets */,
 				886CB93129E5FD0F0003E3DB /* MyCreativeCollection.entitlements */,
 				886CB93229E5FD0F0003E3DB /* Preview Content */,
+				883E78962A2028D00012EB93 /* Color+Extensions.swift */,
 			);
 			path = MyCreativeCollection;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				886CB93D29E605860003E3DB /* CreateCollectionScreen.swift */,
 				886CB93B29E5FFC40003E3DB /* CollectionScreen.swift */,
 				886CB93F29E6087C0003E3DB /* AddThingScreen.swift */,
+				883E78942A1FE5DB0012EB93 /* LoginScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -346,7 +352,9 @@
 				88FC1E0029F9AD02003EAC3C /* MockedViewModel.swift in Sources */,
 				8869C2C029E8CD2A0095C363 /* Intl.swift in Sources */,
 				886CB93C29E5FFC40003E3DB /* CollectionScreen.swift in Sources */,
+				883E78952A1FE5DB0012EB93 /* LoginScreen.swift in Sources */,
 				886CB94729E62A730003E3DB /* Models.swift in Sources */,
+				883E78972A2028D00012EB93 /* Color+Extensions.swift in Sources */,
 				886CB92C29E5FD0E0003E3DB /* MyCreativeCollectionApp.swift in Sources */,
 				886CB94029E6087C0003E3DB /* AddThingScreen.swift in Sources */,
 				886CB93E29E605860003E3DB /* CreateCollectionScreen.swift in Sources */,
