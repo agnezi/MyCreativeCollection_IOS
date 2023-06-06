@@ -19,7 +19,7 @@ struct CreateCollectionScreen: View {
 	
 	@State private var title = ""
 	@Environment(\.dismiss) var dismiss
-	@EnvironmentObject var viewModel: ViewModel
+	@Environment(\.managedObjectContext) var moc
 	
 	var body: some View {
 		Form {
@@ -27,8 +27,11 @@ struct CreateCollectionScreen: View {
 				TextField(Intl.CreateCollectionScreenIntlEn.titleTextField, text: $title)
 				
 				Button(Intl.CreateCollectionScreenIntlEn.createButtonLabel) {
-					let new = Collection(title: title)
-					viewModel.addColectionOnListAndSaveCollectionOnFile(new)
+					let collection = Collection(context: moc)
+					collection.id = UUID()
+					collection.title = title
+					
+					try? moc.save()
 					
 					dismiss()
 				}

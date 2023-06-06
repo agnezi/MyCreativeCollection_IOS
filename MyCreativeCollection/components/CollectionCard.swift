@@ -28,7 +28,7 @@ struct CollectionCard: View {
 				.background(.ultraThinMaterial)
 				.cornerRadius(20)
 			}
-			NavigationLink(destination: CollectionScreen(collection: Collection(title: "Teste"))) {
+			NavigationLink(destination: CollectionScreen()) {
 				Image(systemName: "plus")
 					.padding(10)
 					.foregroundColor(.white)

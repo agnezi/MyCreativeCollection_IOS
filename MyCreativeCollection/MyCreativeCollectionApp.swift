@@ -14,9 +14,9 @@ struct MyCreativeCollectionApp: App {
     var body: some Scene {
         WindowGroup {
 					NavigationView {						
-            LoginScreen()
+            AllCollectionsScreen()
 					}
-					.environmentObject(viewModel)
+					.environment(\.managedObjectContext, viewModel.container.viewContext)
         }
     }
 }

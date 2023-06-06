@@ -17,72 +17,46 @@ extension Intl {
 struct CollectionScreen: View {
 	
 	@State private var showingAddThing = false
-	@EnvironmentObject var viewModel: ViewModel
 	@State private var fileUrl: URL?
-	
-	var collection: Collection
+	@FetchRequest(sortDescriptors: []) var things: FetchedResults<Thing>
 	
 	var body: some View {
-		Group {
-			if viewModel.things.isEmpty {
-				NothingHere(description: Intl.CollectionScreenIntlEn.emptyDescription)
-			} else {
-				VStack {
+		VStack {
+			if things.isEmpty {
+				Text("Nothing")
+						 } else {
 					List {
-						ForEach(viewModel.things.indices, id: \.self) { index in
+						ForEach(things.indices, id: \.self) { index in
 							VStack(alignment: .leading) {
-								Text(viewModel.things[index].title)
+								Text(things[index].title ?? "Empty")
 									.font(.headline)
-									.foregroundColor(viewModel.things[index].status == .missing ? Color.red : Color.primary)
+									.foregroundColor(things[index].status == ThingStatus.missing.rawValue ? Color.red : Color.primary)
 								
-								Text(viewModel.things[index].description)
+								Text(things[index].description)
 									.font(.caption)
 									.foregroundColor(.secondary)
 							}
 							.swipeActions(edge: .trailing) {
 								Button(role: .destructive) {
-									viewModel.removeThingFromListAndSaveOnFile(at: index, collection: collection)
+									print("Remove thing")
 								} label: {
 									Label(Intl.deleteText, systemImage: "trash")
 								}
 							}
 						}
 					}
-					Button(Intl.exportDataText) {
-						fileUrl = viewModel.getFileURL(fileName: collection.fileName)
-					}.quickLookPreview($fileUrl)
 				}
-			}
-		}
-		.onAppear {
-			Task {
-				if let data = try viewModel.loadFile(collection.fileName) {
-					let nativeData = try viewModel.parseToData(jsonData: data, type: [Thing].self)
-					
-					viewModel.setThingsOnList(from: nativeData)
-				}
-			}
-		}
-		.onDisappear {
-			viewModel.resetThingsList()
-		}
-		.navigationTitle(collection.title)
-		.toolbar {
-			Button {
-				showingAddThing = true
-			} label: {
-				Image(systemName: "plus")
-			}
-		}
-		.sheet(isPresented: $showingAddThing) {
-			AddThingScreen(collection: collection)
-		}
-	}
-}
-
-struct CollectionScreen_Previews: PreviewProvider {
-	static var previews: some View {
-		CollectionScreen(collection: Collection.exampleList[0])
-			.environmentObject(MockedViewModel())
-	}
-}
+						 }
+					.navigationTitle("Collection.title")
+					.toolbar {
+						Button {
+							showingAddThing = true
+						} label: {
+							Image(systemName: "plus")
+						}
+					}
+					.sheet(isPresented: $showingAddThing) {
+						AddThingScreen()
+					}
+						 }
+						 }
