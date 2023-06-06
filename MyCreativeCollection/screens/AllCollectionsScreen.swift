@@ -18,7 +18,6 @@ extension Intl {
 	
 	struct ContentViewScreenIntlEn {
 		static let emptyDescription = "Tap 'plus' button on top corner to create a collection"
-		
 		static let sectionTitle = "My stuffs"
 		static let screenTitle = "Collections"
 	}
@@ -26,37 +25,30 @@ extension Intl {
 
 
 struct AllCollectionsScreen: View {
-	
+	@FetchRequest(sortDescriptors: []) var collections: FetchedResults<Collection>
 	@State private var showingCreateSheet = false
-	@EnvironmentObject var viewModel: ViewModel
 	
-	@State private var fileUrl: URL?
 	
 	var body: some View {
-		Group {
-			if viewModel.collections.isEmpty {
-				NothingHere(description: Intl.ContentViewScreenIntlEn.emptyDescription)
+		VStack {
+			if collections.isEmpty {
+				Text("Nothing here")
 			} else {
-				VStack {
-					List {
-						Section(Intl.ContentViewScreenIntlEn.sectionTitle) {
-							ForEach(viewModel.collections.indices, id: \.self) { index in
-								NavigationLink(destination: CollectionScreen(collection: viewModel.collections[index])) {
-									Text(viewModel.collections[index].title)
-								}
-								.swipeActions(edge: .trailing) {
-									Button(role: .destructive) {
-										viewModel.pruneCollectionAndSaveOnFile(at: index, collection: viewModel.collections[index])
-									} label: {
-										Label(Intl.deleteText, systemImage: "trash")
-									}
+				List {
+					Section(Intl.ContentViewScreenIntlEn.sectionTitle) {
+						ForEach(collections.indices, id: \.self) { index in
+							NavigationLink(destination: CollectionScreen()) {
+								Text(collections[index].title ?? "Unknow")
+							}
+							.swipeActions(edge: .trailing) {
+								Button(role: .destructive) {
+									print("Remove")
+								} label: {
+									Label(Intl.deleteText, systemImage: "trash")
 								}
 							}
 						}
 					}
-					Button(Intl.exportDataText) {
-						fileUrl = viewModel.getFileURL(fileName: "collections")
-					}.quickLookPreview($fileUrl)
 				}
 			}
 		}
@@ -71,12 +63,5 @@ struct AllCollectionsScreen: View {
 		.sheet(isPresented: $showingCreateSheet) {
 			CreateCollectionScreen()
 		}
-	}
-}
-
-struct AllCollectionsScreen_Previews: PreviewProvider {
-	static var previews: some View {
-		AllCollectionsScreen()
-			.environmentObject(MockedViewModel())
 	}
 }

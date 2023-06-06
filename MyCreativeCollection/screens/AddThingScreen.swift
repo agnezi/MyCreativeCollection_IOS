@@ -8,9 +8,7 @@ import SwiftUI
 
 
 struct AddThingScreen: View {
-	let collection: Collection
 	@Environment(\.dismiss) var dismiss
-	@EnvironmentObject var viewModel: ViewModel
 	
 	@State private var title = ""
 	@State private var status: ThingStatus = .have
@@ -37,20 +35,11 @@ struct AddThingScreen: View {
 				.pickerStyle(.segmented)
 				
 				Button("Add") {
-					
-					let new = Thing(title: title, description: description, status: status)
-					
-					viewModel.addThingOnListAndSaveThingOnFile(newThing: new, collection: collection)
+				print("Add thing to collection")
 					
 					dismiss()
 				}
 			}
 		}
-	}
-}
-
-struct AddThingScreen_Previews: PreviewProvider {
-	static var previews: some View {
-		AddThingScreen(collection: Collection.exampleList[0])
 	}
 }
