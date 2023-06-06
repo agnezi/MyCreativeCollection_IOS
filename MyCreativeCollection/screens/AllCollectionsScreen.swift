@@ -25,7 +25,8 @@ extension Intl {
 
 
 struct AllCollectionsScreen: View {
-	@FetchRequest(sortDescriptors: []) var collections: FetchedResults<Collection>
+	@Environment(\.managedObjectContext) var moc
+	@FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var collections: FetchedResults<Collection>
 	@State private var showingCreateSheet = false
 	
 	
@@ -35,20 +36,12 @@ struct AllCollectionsScreen: View {
 				Text("Nothing here")
 			} else {
 				List {
-					Section(Intl.ContentViewScreenIntlEn.sectionTitle) {
-						ForEach(collections.indices, id: \.self) { index in
-							NavigationLink(destination: CollectionScreen()) {
-								Text(collections[index].title ?? "Unknow")
-							}
-							.swipeActions(edge: .trailing) {
-								Button(role: .destructive) {
-									print("Remove")
-								} label: {
-									Label(Intl.deleteText, systemImage: "trash")
-								}
-							}
+					ForEach(collections) { collection in
+						NavigationLink(destination: AllThingsScreen(collection: collection)) {
+							Text(collection.title ?? "Unknow")
 						}
 					}
+					.onDelete(perform: removeCollection)
 				}
 			}
 		}
@@ -62,6 +55,14 @@ struct AllCollectionsScreen: View {
 		}
 		.sheet(isPresented: $showingCreateSheet) {
 			CreateCollectionScreen()
+		}
+	}
+	
+	func removeCollection(at offsets: IndexSet) {
+		for index in offsets {
+			let collection = collections[index]
+			
+			moc.delete(collection)
 		}
 	}
 }

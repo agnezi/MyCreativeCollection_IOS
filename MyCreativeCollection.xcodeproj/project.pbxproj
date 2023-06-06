@@ -16,10 +16,9 @@
 		886CB92E29E5FD0E0003E3DB /* AllCollectionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB92D29E5FD0E0003E3DB /* AllCollectionsScreen.swift */; };
 		886CB93029E5FD0F0003E3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886CB92F29E5FD0F0003E3DB /* Assets.xcassets */; };
 		886CB93429E5FD0F0003E3DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886CB93329E5FD0F0003E3DB /* Preview Assets.xcassets */; };
-		886CB93C29E5FFC40003E3DB /* CollectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB93B29E5FFC40003E3DB /* CollectionScreen.swift */; };
+		886CB93C29E5FFC40003E3DB /* AllThingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB93B29E5FFC40003E3DB /* AllThingsScreen.swift */; };
 		886CB93E29E605860003E3DB /* CreateCollectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB93D29E605860003E3DB /* CreateCollectionScreen.swift */; };
-		886CB94029E6087C0003E3DB /* AddThingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB93F29E6087C0003E3DB /* AddThingScreen.swift */; };
-		886CB94329E620DA0003E3DB /* CollectionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB94229E620DA0003E3DB /* CollectionCard.swift */; };
+		886CB94029E6087C0003E3DB /* CreateThingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB93F29E6087C0003E3DB /* CreateThingScreen.swift */; };
 		886CB94529E624940003E3DB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB94429E624940003E3DB /* ViewModel.swift */; };
 		886CB94729E62A730003E3DB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB94629E62A730003E3DB /* Models.swift */; };
 /* End PBXBuildFile section */
@@ -49,10 +48,9 @@
 		886CB92F29E5FD0F0003E3DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		886CB93129E5FD0F0003E3DB /* MyCreativeCollection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyCreativeCollection.entitlements; sourceTree = "<group>"; };
 		886CB93329E5FD0F0003E3DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		886CB93B29E5FFC40003E3DB /* CollectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreen.swift; sourceTree = "<group>"; };
+		886CB93B29E5FFC40003E3DB /* AllThingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllThingsScreen.swift; sourceTree = "<group>"; };
 		886CB93D29E605860003E3DB /* CreateCollectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCollectionScreen.swift; sourceTree = "<group>"; };
-		886CB93F29E6087C0003E3DB /* AddThingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThingScreen.swift; sourceTree = "<group>"; };
-		886CB94229E620DA0003E3DB /* CollectionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCard.swift; sourceTree = "<group>"; };
+		886CB93F29E6087C0003E3DB /* CreateThingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThingScreen.swift; sourceTree = "<group>"; };
 		886CB94429E624940003E3DB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		886CB94629E62A730003E3DB /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,9 +128,9 @@
 			children = (
 				886AF7852A2FD21600CD10AE /* LoginScreen */,
 				886CB92D29E5FD0E0003E3DB /* AllCollectionsScreen.swift */,
+				886CB93B29E5FFC40003E3DB /* AllThingsScreen.swift */,
 				886CB93D29E605860003E3DB /* CreateCollectionScreen.swift */,
-				886CB93B29E5FFC40003E3DB /* CollectionScreen.swift */,
-				886CB93F29E6087C0003E3DB /* AddThingScreen.swift */,
+				886CB93F29E6087C0003E3DB /* CreateThingScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -140,7 +138,6 @@
 		886CB94129E620C90003E3DB /* components */ = {
 			isa = PBXGroup;
 			children = (
-				886CB94229E620DA0003E3DB /* CollectionCard.swift */,
 				8869C2A829E89D9B0095C363 /* NothingHere.swift */,
 			);
 			path = components;
@@ -227,15 +224,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				886CB92E29E5FD0E0003E3DB /* AllCollectionsScreen.swift in Sources */,
-				886CB94329E620DA0003E3DB /* CollectionCard.swift in Sources */,
 				886AF7892A2FD25000CD10AE /* Model.xcdatamodeld in Sources */,
 				8869C2C029E8CD2A0095C363 /* Intl.swift in Sources */,
-				886CB93C29E5FFC40003E3DB /* CollectionScreen.swift in Sources */,
+				886CB93C29E5FFC40003E3DB /* AllThingsScreen.swift in Sources */,
 				883E78952A1FE5DB0012EB93 /* LoginScreen.swift in Sources */,
 				886CB94729E62A730003E3DB /* Models.swift in Sources */,
 				883E78972A2028D00012EB93 /* Color+Extensions.swift in Sources */,
 				886CB92C29E5FD0E0003E3DB /* MyCreativeCollectionApp.swift in Sources */,
-				886CB94029E6087C0003E3DB /* AddThingScreen.swift in Sources */,
+				886CB94029E6087C0003E3DB /* CreateThingScreen.swift in Sources */,
 				886CB93E29E605860003E3DB /* CreateCollectionScreen.swift in Sources */,
 				8869C2A929E89D9B0095C363 /* NothingHere.swift in Sources */,
 				886CB94529E624940003E3DB /* ViewModel.swift in Sources */,

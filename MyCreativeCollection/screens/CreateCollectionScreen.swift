@@ -16,7 +16,6 @@ extension Intl {
 
 
 struct CreateCollectionScreen: View {
-	
 	@State private var title = ""
 	@Environment(\.dismiss) var dismiss
 	@Environment(\.managedObjectContext) var moc
@@ -37,11 +36,5 @@ struct CreateCollectionScreen: View {
 				}
 			}
 		}
-	}
-}
-
-struct CreateCollectionScreen_Previews: PreviewProvider {
-	static var previews: some View {
-		CreateCollectionScreen()
 	}
 }
