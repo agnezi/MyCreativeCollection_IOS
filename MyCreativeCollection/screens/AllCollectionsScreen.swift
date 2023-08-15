@@ -18,7 +18,6 @@ extension Intl {
 	
 	struct ContentViewScreenIntlEn {
 		static let emptyDescription = "Tap 'plus' button on top corner to create a collection"
-		
 		static let sectionTitle = "My stuffs"
 		static let screenTitle = "Collections"
 	}
@@ -26,37 +25,23 @@ extension Intl {
 
 
 struct AllCollectionsScreen: View {
-	
+	@Environment(\.managedObjectContext) var moc
+	@FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var collections: FetchedResults<Collection>
 	@State private var showingCreateSheet = false
-	@EnvironmentObject var viewModel: ViewModel
 	
-	@State private var fileUrl: URL?
 	
 	var body: some View {
-		Group {
-			if viewModel.collections.isEmpty {
-				NothingHere(description: Intl.ContentViewScreenIntlEn.emptyDescription)
+		VStack {
+			if collections.isEmpty {
+				Text("Nothing here")
 			} else {
-				VStack {
-					List {
-						Section(Intl.ContentViewScreenIntlEn.sectionTitle) {
-							ForEach(viewModel.collections.indices, id: \.self) { index in
-								NavigationLink(destination: CollectionScreen(collection: viewModel.collections[index])) {
-									Text(viewModel.collections[index].title)
-								}
-								.swipeActions(edge: .trailing) {
-									Button(role: .destructive) {
-										viewModel.pruneCollectionAndSaveOnFile(at: index, collection: viewModel.collections[index])
-									} label: {
-										Label(Intl.deleteText, systemImage: "trash")
-									}
-								}
-							}
+				List {
+					ForEach(collections) { collection in
+						NavigationLink(destination: AllThingsScreen(collection: collection)) {
+							Text(collection.title ?? "Unknow")
 						}
 					}
-					Button(Intl.exportDataText) {
-						fileUrl = viewModel.getFileURL(fileName: "collections")
-					}.quickLookPreview($fileUrl)
+					.onDelete(perform: removeCollection)
 				}
 			}
 		}
@@ -72,11 +57,12 @@ struct AllCollectionsScreen: View {
 			CreateCollectionScreen()
 		}
 	}
-}
-
-struct AllCollectionsScreen_Previews: PreviewProvider {
-	static var previews: some View {
-		AllCollectionsScreen()
-			.environmentObject(MockedViewModel())
+	
+	func removeCollection(at offsets: IndexSet) {
+		for index in offsets {
+			let collection = collections[index]
+			
+			moc.delete(collection)
+		}
 	}
 }
