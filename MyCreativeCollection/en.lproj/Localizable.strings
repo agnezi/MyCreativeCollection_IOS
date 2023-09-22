@@ -1,0 +1,38 @@
+"common.delete" = "Delete";
+"common.exportData" = "Export my data";
+"common.password" = "Password";
+"common.confirmPassword" = "Confirm password";
+"common.or" = "or";
+"common.continue" = "Continue";
+"common.and" = "and";
+"common.appName" = "My Creative Collection";
+"common.newCollection" = "New collection";
+"common.newThing" = "New thing";
+"common.create" = "Create";
+"common.title" = "Title";
+"common.status" = "Status";
+"common.add" = "Add";
+"common.email" = "Email";
+"common.username" = "Username";
+"common.name" = "Name";
+"common.createAccount" = "Create account";
+"common.alreadyHaveAccount" = "Already have account";
+"common.recoveryPassword"="Recovery password";
+
+"loginScreen.welcome" = "Welcome to ";
+"loginScreen.usernameOrEmail" = "Username or Email";
+"loginScreen.acceptTermsAgreeing" = "By signing in you accept our ";
+"loginScreen.termsOfUse" = "Terms of use";
+"loginScreen.privacyPolicy" = "Privacy Policy";
+
+"collectionsScreen.emptyDescription" = "Tap 'plus' button on bottom center to create a collection";
+"collectionsScreen.sectionTitle" = "My stuffs";
+"collectionsScreen.screenTitle" = "Collections";
+
+"createCollectionScreen.title" = "Create Collection";
+"createCollectionScreen.collectionDescription" = "This is some editable text...";
+
+"collectionScreen.screenTitle" = "Things";
+"collectionScreen.emptyDescription" = "Tap 'plus' button on bottom center to create a thing";
+
+"createThingScreen.addThing" =  "Add thing";

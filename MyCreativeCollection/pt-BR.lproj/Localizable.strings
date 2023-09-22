@@ -1,0 +1,38 @@
+"common.delete" = "Delete";
+"common.exportData" = "Exportar dados";
+"common.password" = "Senha";
+"common.confirmPassword" = "Confirmar senha";
+"common.or" = "ou";
+"common.continue" = "Continue";
+"common.and" = "e";
+"common.appName" = "My Creative Collection";
+"common.newCollection" = "Nova coleção";
+"common.newThing" = "Nova coisa";
+"common.create" = "Criar";
+"common.title" = "Título";
+"common.status" = "Status";
+"common.add" = "Adicionar";
+"common.email" = "Email";
+"common.username" = "Nome de usuário";
+"common.name" = "Nome";
+"common.createAccount" = "Criar conta";
+"common.alreadyHaveAccount"= "Já possuo uma conta";
+"common.recoveryPassword"="Recuperar senha";
+
+"loginScreen.welcome" = "Bem vindo(a) ao ";
+"loginScreen.usernameOrEmail" = "Nome de usuário ou Email";
+"loginScreen.acceptTermsAgreeing" = "Cadastrando-se você estará aceitando nossos ";
+"loginScreen.termsOfUse" = "Termos de uso";
+"loginScreen.privacyPolicy" = "Política Privada";
+
+"collectionsScreen.emptyDescription" = "Pressione o ícone no canto superior para criar uma coleção";
+"collectionsScreen.sectionTitle" = "Minhas coisas";
+"collectionsScreen.screenTitle" = "Coleções";
+
+"createCollectionScreen.title" = "Criar Coleção";
+"createCollectionScreen.collectionDescription" = "Escreva algum texto aqui...";
+
+"collectionScreen.screenTitle" = "Coisas";
+"collectionScreen.emptyDescription" = "Tap 'plus' button on bottom center to create a thing";
+
+"createThingScreen.addThing" =  "Add thing";

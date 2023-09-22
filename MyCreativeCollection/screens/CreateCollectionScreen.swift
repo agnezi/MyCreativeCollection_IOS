@@ -1,4 +1,4 @@
-////
+//
 // MyCreativeCollection
 // Created by: itsjagnezi on 11/04/23
 // Copyright (c) today and beyond
@@ -6,36 +6,49 @@
 
 import SwiftUI
 
-extension Intl {
-	struct CreateCollectionScreenIntlEn {
-		static let sectionTitle = "Create collection"
-		static let createButtonLabel = "Create"
-		static let titleTextField = "Title"
-	}
-}
-
 
 struct CreateCollectionScreen: View {
 	
 	@State private var title = ""
-	@Environment(\.dismiss) var dismiss
+	@State private var description = "createCollectionScreen.collectionDescription"
 	@EnvironmentObject var viewModel: ViewModel
+	@Environment(\.dismiss) var dismiss
 	
 	var body: some View {
-		Form {
-			Section(Intl.CreateCollectionScreenIntlEn.sectionTitle) {
-				TextField(Intl.CreateCollectionScreenIntlEn.titleTextField, text: $title)
-				
-				Button(Intl.CreateCollectionScreenIntlEn.createButtonLabel) {
-					let new = Collection(title: title)
-					viewModel.addColectionOnListAndSaveCollectionOnFile(new)
+		Group {
+			Form {
+				Section("createCollectionScreen.title") {
+					TextField("common.title", text: $title)
 					
-					dismiss()
+					TextEditor(text: $description)
+						.font(.caption)
+					
+					Button("common.create") {
+						let newCollection = CollectionCreateBody(title: title, description: description)
+						
+						Task {
+							viewModel.setCollectionsLoading(true)
+							try await CollectionService.shared.createCollection(collection: newCollection)
+							let collections = try await CollectionService.shared.getAllCollections()
+							viewModel.setCollectionsData(collections)
+							viewModel.setCollectionsLoading(false)
+							dismiss()
+						}
+					}
 				}
+			}
+		}
+		if viewModel.collectionsLoading {
+			VStack(alignment: .center) {
+				ProgressView {
+					Text("Creating collection")
+				}
+				.progressViewStyle(.circular)
 			}
 		}
 	}
 }
+
 
 struct CreateCollectionScreen_Previews: PreviewProvider {
 	static var previews: some View {
